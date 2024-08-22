@@ -3,5 +3,15 @@ services:
   nginx:
     build:
       context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./root:/opt/app-root/src/
     ports:
-      - 8080:8080
+      - 3000:8080
+  # echo-server:
+  #   image: ealen/echo-server
+  #   environment:
+  #     - API_BASE_PATH='wpprg'
+  #   ports:
+  #     - 3000:80
